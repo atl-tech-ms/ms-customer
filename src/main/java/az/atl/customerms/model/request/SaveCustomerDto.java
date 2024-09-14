@@ -1,4 +1,4 @@
-package az.atl.customerms.mapper.request;
+package az.atl.customerms.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,5 +17,5 @@ public class SaveCustomerDto {
     String fullName;
     Integer age;
     String pin;
-    BigDecimal 
+    BigDecimal balance;
 }

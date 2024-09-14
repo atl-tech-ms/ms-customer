@@ -1,6 +1,35 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
-      author: admin
+      id: Create customer table
+      author: Elnur Hasanov
       changes:
-        -
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: full_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pin
+                  type: VARCHAR(4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DECIMAL
+                  constraints:
+                    nullable: false
