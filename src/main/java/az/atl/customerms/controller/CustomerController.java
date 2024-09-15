@@ -3,6 +3,7 @@ package az.atl.customerms.controller;
 import az.atl.customerms.model.request.SaveCustomerDto;
 import az.atl.customerms.model.response.CustomerResponseDto;
 import az.atl.customerms.service.CustomerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> saveCustomer(@RequestBody SaveCustomerDto dto) {
+    public ResponseEntity<Void> saveCustomer(@Valid @RequestBody SaveCustomerDto dto) {
         customerService.saveCustomer(dto);
         return ResponseEntity.status(CREATED).build();
     }

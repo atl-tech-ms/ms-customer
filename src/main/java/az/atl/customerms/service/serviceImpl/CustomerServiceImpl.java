@@ -2,6 +2,7 @@ package az.atl.customerms.service.serviceImpl;
 
 import az.atl.customerms.dao.entity.CustomerEntity;
 import az.atl.customerms.dao.repository.CustomerRepository;
+import az.atl.customerms.exception.NotFoundException;
 import az.atl.customerms.model.request.SaveCustomerDto;
 import az.atl.customerms.model.response.CustomerResponseDto;
 import az.atl.customerms.service.CustomerService;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 import static az.atl.customerms.mapper.CustomerMapper.CUSTOMER_MAPPER;
+import static az.atl.customerms.model.enums.ErrorMessage.CUSTOMER_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -39,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     private CustomerEntity fetchCustomerIfExist(Long id) {
         return customerRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("CUSTOMER_NOT_FOUND")
+                () -> new NotFoundException(CUSTOMER_NOT_FOUND.format(id))
         );
     }
 }
