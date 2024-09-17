@@ -17,11 +17,12 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/changelog-master.yaml
 
-# Port
+# Context-path
 server:
   port: 8080
   servlet:
     context-path: /customer-ms
+
 # Swagger
 springdoc:
   swagger-ui:
